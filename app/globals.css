@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #050318;
+  --foreground: #ffffff;
+  --secondary: #0b0725;
+  --surface: #12102a;
+  --accent: #3b3bff;
+  --accent-light: #5a5cff;
+  --muted: #b5b7d8;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  color: #ffffff;
+  background: #3b3bff;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass {
+    background: rgba(18, 16, 42, 0.72);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .accent-glow {
+    box-shadow: 0 0 46px rgba(59, 59, 255, 0.32);
+  }
+
+  .accent-gradient {
+    background: linear-gradient(135deg, #3b3bff 0%, #5a5cff 54%, #ffffff 170%);
+  }
+
+  .accent-text-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, #bfc1ff 42%, #5a5cff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .marquee {
+    mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  }
+
+  .marquee-track {
+    animation: marquee-scroll 28s linear infinite;
+  }
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
